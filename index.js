@@ -1,7 +1,10 @@
 const puppeteer = require("puppeteer");
+const { resourceLimits } = require("worker_threads");
 const baseScrapeURL = `https://lawyers.findlaw.com/lawyer/firm/medical-malpractice`;
 
 let browser = puppeteer.Browser;
+
+const finalItems = [];
 
 const main = async () => {
   //BASIC CONSOLE LOG
@@ -18,7 +21,7 @@ const main = async () => {
   });
 
   const items = await scrapeData("FLORIDA", "ORLANDO");
-  console.log(`final items are`);
+  console.log(`final items have length ${items.length} and detail are`);
   console.dir(items);
 };
 
@@ -33,28 +36,27 @@ const scrapeData = async (locState, locCity) => {
 
     // wait for input field selector to render
     await page.waitForSelector(baseSelector);
-    console.log(`ready to scrape ${baseSelector} `);
+    console.log(` scrape ${baseSelector} `);
 
-    const finalItems = [];
+    const lawFirmProfileUrls = await page.evaluate(() => {
+      let baseSelector = `.serp_result`;
+      let results = [];
 
-    const lawFirms = await page.evaluate((baseSelector) => {
-      console.log(`attempt to scrape ${baseSelector}`);
-      const locations = document.querySelectorAll(baseSelector);
-
-      console.log(`locations len: ${locations.length}`);
-
-      const firmLocations = Array.from(locations).map((el) => {
-        const company = el.querySelector("h2.listing-details-header");
-        const profileLink = el.querySelector("a.directory_profile");
-
-        return {
-          company: company.textContent,
-          profileLink: profileLink.textContent,
-        };
+      let items = document.querySelectorAll(baseSelector);
+      items.forEach((item) => {
+        let profileWrapper = item.querySelector("a.directory_profile");
+        if (profileWrapper) {
+          //results.push(profileWrapper);
+          results.push({
+            company: item.querySelector("h2.listing-details-header").innerText,
+            url: profileWrapper.getAttribute("href"),
+          });
+        }
       });
-      return firmLocations;
+      return results;
     });
-    return lawFirms;
+
+    return lawFirmProfileUrls;
   } catch (error) {
     console.log(`error with processing`);
     console.log(error);

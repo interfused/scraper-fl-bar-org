@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "eslint": "^8.2.0",
+    "puppeteer": "^11.0.0"
+  },
+  "name": "findlaw",
+  "version": "1.0.0",
+  "description": "scraper",
+  "main": "index.js",
+  "devDependencies": {
+    "prettier": "2.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

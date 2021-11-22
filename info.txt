@@ -1,0 +1,73 @@
+PURPOSE
+SCRAPE lawyers.findlaw.com
+
+TODO
+SmartyStreets CSV
+create JSON State/City List
+
+
+Make sure that /usr/local/bin is in your $PATH.
+
+PACKAGES TO INSTALL
+https://www.npmjs.com/package/csv-reader
+PUPPETEER
+
+RESOURCES
+https://attacomsian.com/blog/nodejs-write-json-object-to-file
+https://www.youtube.com/watch?v=YFPXkLr1fpo
+
+
+SCRAPE ORDER
+State, City
+
+
+FIRM STRUCTURE
+hasSponsoredAdPlacement
+Name
+phone1
+phone2
+fax
+email
+profile
+email
+address1
+address2
+City
+State
+zip
+practice areas
+languages
+attorneys
+awards
+linkedInURL
+facebookURL
+reviews
+logoURL
+hasFreeInitialConsult : boolean
+
+
+
+
+////INDIVIDUAL
+fName
+MI
+lName
+address1
+address2
+City
+State
+zip
+associatedLawFirm
+phone1
+phone2
+fax
+email
+qualificationsBarAdmissions
+qualificationsSpecialtiesAndCertifications
+qualificationsOtherAffiliations
+qualificationsEducation
+qualificationsClassesAndSeminars
+achievementsHonors
+videoUrl
+photoUrl
+hasFreeInitialConsult

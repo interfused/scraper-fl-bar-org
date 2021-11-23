@@ -156,8 +156,14 @@ const grabFullDetail = async (url) => {
         .replace(/\s+/g, "");
     }
 
+    var keys = [];
+
     for (var el of tmpEls) {
       let k = camelize(el.querySelector("h4").innerText);
+      if (keys.includes(k)) {
+        continue;
+      }
+      keys.push(k);
       let v = el.querySelector(".block_content_body").innerHTML;
       //moreBlocks[k] = v;
       let tmpObj = {};
@@ -175,12 +181,39 @@ const grabFullDetail = async (url) => {
           v = htmlListToStringList(v);
         }
 
+        if (["offersFreeInitialConsultation"].includes(k)) {
+          v = v.replace("<p>Yes</p>", "Yes");
+        }
+
         tmpObj[k] = v;
         moreBlocks.push(tmpObj);
       }
     }
 
     let fax = document.querySelector(".pplus_firm_fax").innerText;
+
+    //SOCIAL LINKS
+    let social_fb = "";
+    let social_twitter = "";
+    let social_linkedin = "";
+    let social_instagram = "";
+
+    const getMoreBlockValue = (k) => {
+      for (let i = 0; i < moreBlocks.length; i++) {
+        let obj = moreBlocks[i];
+
+        if (k in obj) {
+          return obj[k];
+        }
+      }
+      return "";
+    };
+
+    const getScrapePlacementDetails = (str) => {
+      let pieces = str.split("/");
+      return { name: pieces[5], state: pieces[6], city: pieces[7] };
+    };
+    const scrapePieces = getScrapePlacementDetails(window.location.href);
 
     return {
       companyName: document.querySelector("h1.listing-details-header")
@@ -195,13 +228,52 @@ const grabFullDetail = async (url) => {
       fax,
       profilePhotoUrl,
       moreBlocks,
+      practiceAreas: getMoreBlockValue("practiceAreas"),
+      litigation: getMoreBlockValue("litigation"),
+      languages: getMoreBlockValue("languages"),
+
+      classesAndSeminars: getMoreBlockValue("classesAndSeminars:"),
+      offersFreeInitialConsultation: getMoreBlockValue(
+        "offersFreeInitialConsultation"
+      ),
+      officeHours: getMoreBlockValue("officeHours"),
+      honors: getMoreBlockValue("honors"),
+      articles: getMoreBlockValue("articles"),
+
+      social_fb,
+      social_twitter,
+      social_linkedin,
+      social_instagram,
       scrapeUrl: window.location.href,
+      scrapePieces,
       description: document.querySelector("div#pp_overview_text").innerHTML,
     };
   });
 
   console.log(`final details for the company were`);
   console.log(companyDetails);
+
+  let jsonFile = `json/law-firms/${companyDetails.scrapePieces.state}/${companyDetails.scrapePieces.city}/${companyDetails.scrapePieces.name}.json`;
+  console.log(`which should be written to: ${jsonFile}`);
+
+  //DIRECTORY CHECK/WRITE
+  let dirs = [
+    "json",
+    "json/law-firms",
+    `json/law-firms/${companyDetails.scrapePieces.state}`,
+    `json/law-firms/${companyDetails.scrapePieces.state}/${companyDetails.scrapePieces.city}`,
+  ];
+  for (let i = 0; i < dirs.length; i++) {
+    if (!fs.existsSync(dirs[i])) {
+      fs.mkdirSync(dirs[i]);
+    }
+  }
+
+  //END
+
+  delete companyDetails.scrapePieces;
+  let data = JSON.stringify(companyDetails, null, 4);
+  fs.writeFileSync(jsonFile, data);
 };
 
 ///BOTTOM IS WORKING BUT TEMPORARILY DISABLED

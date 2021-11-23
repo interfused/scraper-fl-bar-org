@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "eslint": "^8.2.0",
+    "psl": "^1.8.0",
     "puppeteer": "^11.0.0"
   },
   "name": "findlaw",

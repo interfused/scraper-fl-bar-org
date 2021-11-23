@@ -7,8 +7,10 @@ let scrape = async (locCity, locState) => {
 
   var isNextPageExists = true;
 
+  let locCityClean = locCity.replace(" ", "-");
+
   await page.goto(
-    `https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/${locCity.toLowerCase()}/${locState.toLowerCase()}`
+    `https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/${locCityClean.toLowerCase()}/${locState.toLowerCase()}`
   );
 
   var results = []; // variable to hold collection of all book companys and profileUrls
@@ -293,7 +295,7 @@ const grabFullDetail = async (url) => {
 
 ///BOTTOM IS WORKING BUT TEMPORARILY DISABLED
 
-scrape("ORLANDO", "FLORIDA").then((value) => {
+scrape("ALTAMONTE SPRINGS", "FLORIDA").then((value) => {
   console.log(value);
   console.log("Collection length: " + value.length);
   console.log(value[0]);

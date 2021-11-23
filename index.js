@@ -112,7 +112,6 @@ const grabFullDetail = async (url) => {
     let address2 = "";
     if (
       cleanAddressSegments.querySelector("span.pp_card_street:nth-of-type(2)")
-        .length
     ) {
       address2 = cleanAddressSegments
         .querySelector("span.pp_card_street:nth-of-type(2)")
@@ -137,7 +136,7 @@ const grabFullDetail = async (url) => {
     }
 
     let phone = "";
-    if (document.querySelector(".svg-icon-phone + span").length) {
+    if (document.querySelector(".svg-icon-phone + span")) {
       phone = document.querySelector(".svg-icon-phone + span").innerText;
     }
 
@@ -205,7 +204,7 @@ const grabFullDetail = async (url) => {
     }
 
     let fax = "";
-    if (document.querySelector(".pplus_firm_fax").length) {
+    if (document.querySelector(".pplus_firm_fax")) {
       fax = document.querySelector(".pplus_firm_fax").innerText;
     }
 

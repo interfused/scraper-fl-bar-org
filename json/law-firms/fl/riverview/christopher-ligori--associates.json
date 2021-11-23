@@ -1,13 +1,13 @@
 {
     "companyName": "Christopher Ligori & Associates - Riverview, FL",
     "address1": "10101 Bloomingdale Ave",
-    "address2": "#204",
+    "address2": "",
     "city": "Riverview",
     "state": "FL",
     "zip": "33578",
     "website": "https://www.ligorilaw.com",
-    "phone": "813-771-0209",
-    "fax": "813-251-6853",
+    "phone": "",
+    "fax": "",
     "profilePhotoUrl": "https://images.findlawresources.com/env_prod/type_profile/firmwld_5003688/pid_1/christopher_ligori_associates.jpg",
     "moreBlocks": [
         {
@@ -20,7 +20,7 @@
             "officeHours": "<p> Monday to Sunday 24 hours <br></p>"
         },
         {
-            "websites": "<a rel=\"sponsored\" href=\"https://www.ligorilaw.com?refPageViewId=6b2e20b393ce67c0\" class=\"profile-website-body\" target=\"new\"> https://www.ligorilaw.com </a><a rel=\"sponsored\" target=\"new\" class=\"profile-website-body\" href=\"https://www.ligorilaw.com/ligori-law-blog?refPageViewId=6b2e20b393ce67c0\"> https://www.ligorilaw.com/ligori-law-blog </a>"
+            "websites": "<a rel=\"sponsored\" href=\"https://www.ligorilaw.com?refPageViewId=6b2e4012849409f6\" class=\"profile-website-body\" target=\"new\"> https://www.ligorilaw.com </a><a rel=\"sponsored\" target=\"new\" class=\"profile-website-body\" href=\"https://www.ligorilaw.com/ligori-law-blog?refPageViewId=6b2e4012849409f6\"> https://www.ligorilaw.com/ligori-law-blog </a>"
         },
         {
             "otherOffices": "<p><a href=\"/profile/lawfirm/christopher-ligori--associates/fl/tampa/NTAwMzY5MF8x/PP\"> Christopher Ligori &amp; Associates </a> (Main Office) <span class=\"pp_card_street\"> 117 S. Willow Ave </span><span class=\"pp_card_street\"><span>Tampa</span>, <span>FL</span><span> 33606 </span></span><span class=\"pp_card_street\"> 813-771-0209 </span></p>"
@@ -41,6 +41,6 @@
     "social_twitter": "",
     "social_linkedin": "",
     "social_instagram": "",
-    "scrapeUrl": "https://lawyers.findlaw.com/profile/lawfirm/christopher-ligori--associates/fl/riverview/NTAwMzY4OF8x/PP?refPageViewId=6b2e1f895225222d#otherlocations",
+    "scrapeUrl": "https://lawyers.findlaw.com/profile/lawfirm/christopher-ligori--associates/fl/riverview/NTAwMzY4OF8x/PP?refPageViewId=6b2e3f1ad518370f#otherlocations",
     "description": "<p>When people in Florida suffer personal injuries or property damage, our Riverview team at Christopher Ligori &amp; Associates is ready to serve. No matter how trivial or complex a case is, our law office treats it with the same urgency and seriousness.</p><p><strong>Our Personal Injury And Property &amp; Casualty Cases</strong><br>We handle cases involving both natural disasters and negligent parties. These are some examples of the cases we take on, on behalf of our clients:</p><ul><li>Pedestrian accidents</li><li>Brain injuries</li><li>Car crashes</li><li>Business income loss</li><li>Lightning damage</li><li>Theft </li></ul><p><strong>Our Values At Christopher Ligori &amp; Associates</strong><br>Virtually all law offices have their clients' best interests at heart. After all, with so many of us operating on a contingency basis, the client's win is also a financial win for the law office. At our firm, we would love to be the best, but we are even more focused on ensuring we focus on what is best for our clients.</p><p><strong>What Clients Can Expect From Our Riverview Law Office</strong><br>When we take on Florida cases, we complete our own investigation. We then measure those findings against provisions in the laws to see whether pursuing a case is feasible. We do not charge clients for this review and believe that working on a contingency basis is an excellent motivator.</p>"
 }

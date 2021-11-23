@@ -1,13 +1,13 @@
 {
     "companyName": "The Fantauzzi Law Firm - Tampa, FL",
     "address1": "Floridan Legal Center",
-    "address2": "1814 N. 15th Street",
+    "address2": "",
     "city": "Suite #16",
     "state": "Tampa",
     "zip": ", FL",
     "website": "http://www.fantauzzilaw.com",
-    "phone": "800-447-4870",
-    "fax": "813-354-4893",
+    "phone": "",
+    "fax": "",
     "profilePhotoUrl": "https://images.findlawresources.com/env_prod/type_profile/firmwld_4983522/pid_1/the_fantauzzi_law_firm.jpg",
     "moreBlocks": [
         {
@@ -29,7 +29,7 @@
             "acceptsCreditCards": "<p>Yes</p>"
         },
         {
-            "websites": "<a rel=\"sponsored\" href=\"http://www.fantauzzilaw.com?refPageViewId=6b2e205e31ae0341\" class=\"profile-website-body\" target=\"new\"> http://www.fantauzzilaw.com </a>"
+            "websites": "<a rel=\"sponsored\" href=\"http://www.fantauzzilaw.com?refPageViewId=6b2e4010a5b767de\" class=\"profile-website-body\" target=\"new\"> http://www.fantauzzilaw.com </a>"
         },
         {
             "lawyersAtTheFantauzziLawFirmSelectedForASuperLawyers®List": "<ul><li> Fantauzzi, Anthony J. <a href=\"/profile/lawyer/anthony-j-fantauzzi/fl/tampa/MzI4OTUyN18x/PP#feedback\">On a Super Lawyers® List</a></li></ul>"
@@ -53,6 +53,6 @@
     "social_twitter": "",
     "social_linkedin": "",
     "social_instagram": "",
-    "scrapeUrl": "https://lawyers.findlaw.com/profile/lawfirm/the-fantauzzi-law-firm/fl/tampa/NDk4MzUyMl8x/PP?refPageViewId=6b2e1f895225222d",
+    "scrapeUrl": "https://lawyers.findlaw.com/profile/lawfirm/the-fantauzzi-law-firm/fl/tampa/NDk4MzUyMl8x/PP?refPageViewId=6b2e3f1ad518370f",
     "description": " The Fantauzzi Law Firm understands that not all cases are the same, which goes for clients as well. Although every case and each client has different needs, what is universal is the importance of individual client attention. At The Fantauzzi Law Firm, we purposely limit our case load so that clients are assured personal attention by a lawyer and not a paralegal or legal assistant. Although we cannot provide this personal attention by accepting every case, we have an extensive referral network of quality attorneys of various specialties, experience levels and costs. With over fifteen years of experience, attorney Anthony Fantauzzi offers individuals and businesses in Tampa, St. Petersburg, Clearwater, as well as the surrounding counties of Polk, Pasco, and Manatee, comprehensive representation and compassionate counseling.<br>Areas of Practice<br>As former corporate counsel for the healthcare, commercial trucking, insurance and waste disposal industries, attorney Anthony Fantauzzi has the unique and inside practical experience necessary to fully service legal needs in the following areas:<br>•Business litigation<br>•Dedicated legal counseling<br>•Professional liability<br>•Truck accidents<br>•Brain injuries "
 }

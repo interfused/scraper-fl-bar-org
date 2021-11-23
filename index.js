@@ -107,9 +107,16 @@ const grabFullDetail = async (url) => {
     let address1 = cleanAddressSegments
       .querySelector("span.pp_card_street:nth-of-type(1)")
       .innerText.trim();
-    let address2 = cleanAddressSegments
-      .querySelector("span.pp_card_street:nth-of-type(2)")
-      .innerText.trim();
+    let address2 = "";
+    if (
+      cleanAddressSegments.querySelector("span.pp_card_street:nth-of-type(2)")
+        .length
+    ) {
+      address2 = cleanAddressSegments
+        .querySelector("span.pp_card_street:nth-of-type(2)")
+        .innerText.trim();
+    }
+
     let city = cleanAddressSegments
       .querySelector("span:nth-of-type(3)")
       .innerText.trim();
@@ -126,7 +133,12 @@ const grabFullDetail = async (url) => {
     if (website.includes("?")) {
       website = website.split("?")[0];
     }
-    let phone = document.querySelector(".svg-icon-phone + span").innerText;
+
+    let phone = "";
+    if (document.querySelector(".svg-icon-phone + span").length) {
+      phone = document.querySelector(".svg-icon-phone + span").innerText;
+    }
+
     let profilePhotoUrl = document
       .querySelector("img#profile_photo_block")
       .getAttribute("src");
@@ -190,7 +202,10 @@ const grabFullDetail = async (url) => {
       }
     }
 
-    let fax = document.querySelector(".pplus_firm_fax").innerText;
+    let fax = "";
+    if (document.querySelector(".pplus_firm_fax").length) {
+      fax = document.querySelector(".pplus_firm_fax").innerText;
+    }
 
     //SOCIAL LINKS
     let social_fb = "";
@@ -277,7 +292,7 @@ const grabFullDetail = async (url) => {
 };
 
 ///BOTTOM IS WORKING BUT TEMPORARILY DISABLED
-/*
+
 scrape("ORLANDO", "FLORIDA").then((value) => {
   console.log(value);
   console.log("Collection length: " + value.length);
@@ -288,12 +303,9 @@ scrape("ORLANDO", "FLORIDA").then((value) => {
   const unique = [...new Set(value.map((item) => item.profileUrl))];
   console.log(`unique profileUrls: ${unique.length}`);
 
-  for (let i = 0; i < 1; i++) {
-    grabFullDetail(unique[i]);
+  for (let i = 0; i < unique.length; i++) {
+    setTimeout(() => {
+      grabFullDetail(unique[i]);
+    }, i * 500);
   }
 });
-*/
-
-grabFullDetail(
-  `https://lawyers.findlaw.com/profile/lawfirm/leighton-law-pa/fl/miami/NDgyNDE4MF8x/PP?refPageViewId=6b2560f8d45a3715`
-);

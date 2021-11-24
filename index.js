@@ -294,7 +294,7 @@ const grabFullDetail = async (url) => {
 
 ///BOTTOM IS WORKING BUT TEMPORARILY DISABLED
 
-scrape("FORT PIERCE", "FLORIDA").then((value) => {
+scrape("miami", "FLORIDA").then((value) => {
   console.log(value);
   console.log("Collection length: " + value.length);
   console.log(value[0]);
@@ -307,6 +307,6 @@ scrape("FORT PIERCE", "FLORIDA").then((value) => {
   for (let i = 0; i < unique.length; i++) {
     setTimeout(() => {
       grabFullDetail(unique[i]);
-    }, i * 500);
+    }, i * 600);
   }
 });

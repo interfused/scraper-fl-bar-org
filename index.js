@@ -294,7 +294,7 @@ const grabFullDetail = async (url) => {
 
 ///BOTTOM IS WORKING BUT TEMPORARILY DISABLED
 
-scrape("ALTAMONTE SPRINGS", "FLORIDA").then((value) => {
+scrape("FORT PIERCE", "FLORIDA").then((value) => {
   console.log(value);
   console.log("Collection length: " + value.length);
   console.log(value[0]);

@@ -7,10 +7,13 @@ let scrape = async (locCity, locState) => {
 
   var isNextPageExists = true;
 
-  let locCityClean = locCity.replace(" ", "-");
+  //spaces to dashes
+  let locCityClean = locCity.replace(/\s+/g, "-");
+
+  let locStateClean = locState.replace(/\s+/g, "-");
 
   await page.goto(
-    `https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/${locCityClean.toLowerCase()}/${locState.toLowerCase()}`
+    `https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/${locCityClean.toLowerCase()}/${locStateClean.toLowerCase()}`
   );
 
   var results = []; // variable to hold collection of all book companys and profileUrls
@@ -269,15 +272,29 @@ const grabFullDetail = async (url) => {
   console.log(`final details for the company were`);
   console.log(companyDetails);
 
-  let jsonFile = `json/law-firms/${companyDetails.scrapePieces.state}/${companyDetails.scrapePieces.city}/${companyDetails.scrapePieces.name}.json`;
+  const fileNameClean = (str) => {
+    let str2 = str;
+
+    //spaces to dashes
+    str2 = str2.replace(/\s+/g, "-");
+    //replace all non alphanumeric with dash
+    str2 = str2.replace(/[\W_]+/g, "-");
+    return str2;
+  };
+
+  let companyNameClean = fileNameClean(companyDetails.companyName);
+  let stateNameClean = fileNameClean(companyDetails.state).toLowerCase();
+  let cityNameClean = fileNameClean(companyDetails.city).toLowerCase();
+
+  let jsonFile = `json/law-firms/${stateNameClean}/${cityNameClean}/${companyNameClean}.json`;
   console.log(`which should be written to: ${jsonFile}`);
 
   //DIRECTORY CHECK/WRITE
   let dirs = [
     "json",
     "json/law-firms",
-    `json/law-firms/${companyDetails.scrapePieces.state}`,
-    `json/law-firms/${companyDetails.scrapePieces.state}/${companyDetails.scrapePieces.city}`,
+    `json/law-firms/${stateNameClean}`,
+    `json/law-firms/${stateNameClean}/${cityNameClean}`,
   ];
   for (let i = 0; i < dirs.length; i++) {
     if (!fs.existsSync(dirs[i])) {
@@ -294,7 +311,7 @@ const grabFullDetail = async (url) => {
 
 ///BOTTOM IS WORKING BUT TEMPORARILY DISABLED
 
-scrape("Whitfield County", "ALABAMA").then((value) => {
+scrape("Suffolk County", "CALIFORNIA").then((value) => {
   console.log(value);
   console.log("Collection length: " + value.length);
   console.log(value[0]);

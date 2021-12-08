@@ -311,7 +311,7 @@ const grabFullDetail = async (url) => {
 
 ///BOTTOM IS WORKING BUT TEMPORARILY DISABLED
 
-scrape("Suffolk County", "CALIFORNIA").then((value) => {
+scrape("ventura County", "CALIFORNIA").then((value) => {
   console.log(value);
   console.log("Collection length: " + value.length);
   console.log(value[0]);

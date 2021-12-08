@@ -42,7 +42,83 @@ let scrape = async (locCity, locState) => {
   return results;
 };
 
+let scrapeDetaillUrl = async (url) => {
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+
+  var isNextPageExists = true;
+
+  //spaces to dashes
+
+  await page.goto(url);
+
+  var results = []; // variable to hold collection of all book companys and profileUrls
+  var lastPageNumber = 2; // this is hardcoded last catalogue page, you can set it dunamically if you wish
+  // defined simple loop to iterate over number of catalogue pages
+  while (isNextPageExists) {
+    // wait 1 sec for page load
+    await page.waitForSelector(".serp_result");
+    // call and wait extractedEvaluateCall and concatenate results every iteration.
+    // You can use results.push, but will get collection of collections at the end of iteration
+    results = results.concat(await extractedEvaluateCall(page));
+    // this is where next button on page clicked to jump to another page
+
+    isNextPageExists = await getIfNextPageExists(page);
+    console.log(`isNextExists: ${isNextPageExists}`);
+    if (isNextPageExists) {
+      // no next button on last page
+      await page.click('li.pagination-next a[rel="next"]');
+    }
+
+    //
+  }
+
+  browser.close();
+
+  return results;
+};
+
 async function extractedEvaluateCall(page) {
+  // just extracted same exact logic in separate function
+  // this function should use async keyword in order to work and take page as argument
+  return page.evaluate(() => {
+    //CLEANUP THE PROTOCOL STRICTLY FOR FINDLAW.COM BECAUSE THEREE WERE SOME INCONSISTENCIES
+    const cleanProtocol = (str) => {
+      //strip https://
+      let cleanUrl = str.replace("https://", "");
+
+      //strip http://
+      cleanUrl = cleanUrl.replace("http://", "");
+
+      //final cleanup
+      cleanUrl = cleanUrl.replace(
+        "//lawyers.findlaw.com",
+        "lawyers.findlaw.com"
+      );
+
+      return `https://${cleanUrl}`;
+    };
+
+    let data = [];
+    let elements = document.querySelectorAll(".serp_result");
+
+    for (var element of elements) {
+      let companySelector = element.querySelector("h2.listing-details-header");
+      if (companySelector) {
+        let company = companySelector.innerText;
+        let profileUrl = element
+          .querySelector("a.directory_profile")
+          .getAttribute("href");
+
+        data.push({ company, profileUrl: cleanProtocol(profileUrl) });
+      }
+    }
+
+    return data;
+  });
+}
+
+async function extractedEvaluateCounties(page) {
   // just extracted same exact logic in separate function
   // this function should use async keyword in order to work and take page as argument
   return page.evaluate(() => {
@@ -108,29 +184,37 @@ const grabFullDetail = async (url) => {
   await page.click("a#read_more_toggle");
 
   const companyDetails = await page.evaluate(() => {
-    let cleanAddressSegments = document.querySelector("p.pp_card_street");
-    let address1 = cleanAddressSegments
-      .querySelector("span.pp_card_street:nth-of-type(1)")
-      .innerText.trim();
-    let address2 = "";
-    if (
-      cleanAddressSegments.querySelector("span.pp_card_street:nth-of-type(2)")
-    ) {
-      address2 = cleanAddressSegments
-        .querySelector("span.pp_card_street:nth-of-type(2)")
-        .innerText.trim();
-    }
+    const getInnerTextValue = (sel) => {
+      if (sel) {
+        return sel.innerText.trim();
+      }
+      return "";
+    };
 
-    let city = cleanAddressSegments
-      .querySelector("span:nth-of-type(3)")
-      .innerText.trim();
-    let state = cleanAddressSegments.querySelector(
-      "span:nth-of-type(4)"
-    ).innerText;
+    let cleanAddressSegments = document.querySelector("p.pp_card_street");
+    let segLen = cleanAddressSegments.childElementCount;
+    let address1 = getInnerTextValue(
+      cleanAddressSegments.querySelector("span.pp_card_street:nth-of-type(1)")
+    );
+
+    let address2 = getInnerTextValue(
+      cleanAddressSegments.querySelector("span.pp_card_street:nth-of-type(2)")
+    );
+
+    let city = getInnerTextValue(
+      document.querySelector(
+        `p.pp_card_street > span:nth-of-type(${segLen - 2})`
+      )
+    );
+    let state = getInnerTextValue(
+      document.querySelector(
+        `p.pp_card_street > span:nth-of-type(${segLen - 1})`
+      )
+    );
     state = state.replace(",", "").trim();
-    let zip = cleanAddressSegments
-      .querySelector("span:nth-of-type(5)")
-      .innerText.trim();
+    let zip = getInnerTextValue(
+      document.querySelector(`p.pp_card_street > span:nth-of-type(${segLen})`)
+    );
     let website = document
       .querySelector("a.listing-desc-button")
       .getAttribute("href");
@@ -311,7 +395,29 @@ const grabFullDetail = async (url) => {
 
 ///BOTTOM IS WORKING BUT TEMPORARILY DISABLED
 
-scrape("ventura County", "CALIFORNIA").then((value) => {
+/*
+scrape("ventura County", "ALASKA").then((value) => {
+  console.log(value);
+  console.log("Collection length: " + value.length);
+  console.log(value[0]);
+  console.log(value[value.length - 1]);
+
+  //GET THE UNIQUE PROFILE LINKS
+  const unique = [...new Set(value.map((item) => item.profileUrl))];
+  console.log(`unique profileUrls: ${unique.length}`);
+
+  for (let i = 0; i < unique.length; i++) {
+    setTimeout(() => {
+      grabFullDetail(unique[i]);
+    }, i * 600);
+  }
+});
+*/
+
+let detailUrl =
+  "https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/yuma-county/arizona";
+
+scrapeDetaillUrl(detailUrl).then((value) => {
   console.log(value);
   console.log("Collection length: " + value.length);
   console.log(value[0]);

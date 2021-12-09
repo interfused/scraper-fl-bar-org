@@ -118,46 +118,6 @@ async function extractedEvaluateCall(page) {
   });
 }
 
-async function extractedEvaluateCounties(page) {
-  // just extracted same exact logic in separate function
-  // this function should use async keyword in order to work and take page as argument
-  return page.evaluate(() => {
-    //CLEANUP THE PROTOCOL STRICTLY FOR FINDLAW.COM BECAUSE THEREE WERE SOME INCONSISTENCIES
-    const cleanProtocol = (str) => {
-      //strip https://
-      let cleanUrl = str.replace("https://", "");
-
-      //strip http://
-      cleanUrl = cleanUrl.replace("http://", "");
-
-      //final cleanup
-      cleanUrl = cleanUrl.replace(
-        "//lawyers.findlaw.com",
-        "lawyers.findlaw.com"
-      );
-
-      return `https://${cleanUrl}`;
-    };
-
-    let data = [];
-    let elements = document.querySelectorAll(".serp_result");
-
-    for (var element of elements) {
-      let companySelector = element.querySelector("h2.listing-details-header");
-      if (companySelector) {
-        let company = companySelector.innerText;
-        let profileUrl = element
-          .querySelector("a.directory_profile")
-          .getAttribute("href");
-
-        data.push({ company, profileUrl: cleanProtocol(profileUrl) });
-      }
-    }
-
-    return data;
-  });
-}
-
 async function getIfNextPageExists(page) {
   // just extracted same exact logic in separate function
   // this function should use async keyword in order to work and take page as argument
@@ -215,11 +175,14 @@ const grabFullDetail = async (url) => {
     let zip = getInnerTextValue(
       document.querySelector(`p.pp_card_street > span:nth-of-type(${segLen})`)
     );
-    let website = document
-      .querySelector("a.listing-desc-button")
-      .getAttribute("href");
-    if (website.includes("?")) {
-      website = website.split("?")[0];
+    let website = "";
+    if (document.querySelector("a.listing-desc-button")) {
+      website = document
+        .querySelector("a.listing-desc-button")
+        .getAttribute("href");
+      if (website.includes("?")) {
+        website = website.split("?")[0];
+      }
     }
 
     let phone = "";
@@ -227,9 +190,12 @@ const grabFullDetail = async (url) => {
       phone = document.querySelector(".svg-icon-phone + span").innerText;
     }
 
-    let profilePhotoUrl = document
-      .querySelector("img#profile_photo_block")
-      .getAttribute("src");
+    let profilePhotoUrl = "";
+    if (document.querySelector("img#profile_photo_block")) {
+      profilePhotoUrl = document
+        .querySelector("img#profile_photo_block")
+        .getAttribute("src");
+    }
 
     let tmpEls = document.querySelectorAll(".card.more-info .block_content");
     let moreBlocks = [];
@@ -415,7 +381,7 @@ scrape("ventura County", "ALASKA").then((value) => {
 */
 
 let detailUrl =
-  "https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/yuma-county/arizona";
+  "https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/white-county/arkansas";
 
 scrapeDetaillUrl(detailUrl).then((value) => {
   console.log(value);

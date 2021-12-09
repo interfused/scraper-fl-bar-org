@@ -382,7 +382,7 @@ scrape("ventura County", "ALASKA").then((value) => {
 */
 
 let detailUrl =
-  "https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/teller-county/colorado";
+  "https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/maui-county/hawaii";
 
 scrapeDetaillUrl(detailUrl).then((value) => {
   console.log(value);

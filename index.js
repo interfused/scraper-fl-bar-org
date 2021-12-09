@@ -185,10 +185,9 @@ const grabFullDetail = async (url) => {
       }
     }
 
-    let phone = "";
-    if (document.querySelector(".svg-icon-phone + span")) {
-      phone = document.querySelector(".svg-icon-phone + span").innerText;
-    }
+    let phone = getInnerTextValue(
+      document.querySelector(".svg-icon-phone + span")
+    );
 
     let profilePhotoUrl = "";
     if (document.querySelector("img#profile_photo_block")) {
@@ -256,10 +255,7 @@ const grabFullDetail = async (url) => {
       }
     }
 
-    let fax = "";
-    if (document.querySelector(".pplus_firm_fax")) {
-      fax = document.querySelector(".pplus_firm_fax").innerText;
-    }
+    let fax = getInnerTextValue(document.querySelector(".pplus_firm_fax"));
 
     //SOCIAL LINKS
     let social_fb = "";
@@ -283,6 +279,11 @@ const grabFullDetail = async (url) => {
       return { name: pieces[5], state: pieces[6], city: pieces[7] };
     };
     const scrapePieces = getScrapePlacementDetails(window.location.href);
+
+    let description = "";
+    if (document.querySelector("div#pp_overview_text")) {
+      description = document.querySelector("div#pp_overview_text").innerHTML;
+    }
 
     return {
       companyName: document.querySelector("h1.listing-details-header")
@@ -315,7 +316,7 @@ const grabFullDetail = async (url) => {
       social_instagram,
       scrapeUrl: window.location.href,
       scrapePieces,
-      description: document.querySelector("div#pp_overview_text").innerHTML,
+      description,
     };
   });
 
@@ -381,7 +382,7 @@ scrape("ventura County", "ALASKA").then((value) => {
 */
 
 let detailUrl =
-  "https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/white-county/arkansas";
+  "https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/teller-county/colorado";
 
 scrapeDetaillUrl(detailUrl).then((value) => {
   console.log(value);
@@ -396,6 +397,6 @@ scrapeDetaillUrl(detailUrl).then((value) => {
   for (let i = 0; i < unique.length; i++) {
     setTimeout(() => {
       grabFullDetail(unique[i]);
-    }, i * 600);
+    }, i * 750);
   }
 });

@@ -382,7 +382,7 @@ scrape("ventura County", "ALASKA").then((value) => {
 */
 
 let detailUrl =
-  "https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/wayne-county/indiana";
+  "https://lawyers.findlaw.com/lawyer/firm/medical-malpractice/washington-parish/louisiana";
 
 scrapeDetaillUrl(detailUrl).then((value) => {
   console.log(value);

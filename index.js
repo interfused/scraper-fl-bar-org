@@ -583,7 +583,9 @@ const grabFullDetail = async (url) => {
     }
   }
 
-  let jsonFile = `${dirs[1]}/test.json`;
+  let  fileId = url.split('?num=')[1];
+
+  let jsonFile = `${dirs[1]}/${fileId}.json`;
   console.log(`which should be written to: ${jsonFile}`);
 
   //END

@@ -9,6 +9,11 @@ const fullDetailsArr = [];
 const baseUrl =
   "https://www.floridabar.org/directories/find-mbr/?lName=&sdx=N&fName=&eligible=Y&deceased=N&firm=&locValue=&locType=C&pracAreas=M04&lawSchool=&services=&langs=&certValue=&pageNumber=1&pageSize=50";
 
+const stripParagraphTags = (str) => {
+  let str2 = str.replace("<p>", "");
+  str2 = str2.replace("</p>", "");
+  return str2;
+};
 /*
 let scrape = async (locCity, locState) => {
   const browser = await puppeteer.launch({ headless: true });
@@ -105,7 +110,7 @@ let scrapeDetaillUrl = async (url) => {
 
   //spaces to dashes
 
-  await page.goto(url);
+  await page.goto(url, { waitUntil: "networkidle2" });
 
   var results = []; // variable to hold collection of all book companys and profileUrls
   var lastPageNumber = 2; // this is hardcoded last catalogue page, you can set it dunamically if you wish
@@ -442,7 +447,7 @@ const grabFullDetail = async (url) => {
   console.log(`attempt grabFullDetail for: ${url}`);
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  await page.goto(url);
+  await page.goto(url, { waitUntil: "networkidle2" });
   //wait for overview text
   await page.waitForSelector("#mProfile");
 
@@ -457,162 +462,102 @@ const grabFullDetail = async (url) => {
       return "";
     };
 
-    const getRowDetailByLabel = (searchText = "") => {
+    const getRowDetailByLabel = (searchText = "", format = "text") => {
       var nodes = document.querySelectorAll("#mProfile .row");
       for (let i = 0; i < nodes.length; i++) {
         let rowNode = nodes[i];
         if (rowNode.children[0].innerText === searchText) {
-          var htmlStr = rowNode.children[1].innerText;
+          if (format === "text") {
+            return rowNode.children[1].innerText;
+          }
+          var htmlStr = rowNode.children[1].innerHTML.trim();
+          htmlStr = htmlStr.replace(/[\n\r]+/g, "");
+          //dboule spaces
+          //htmlStr = htmlStr.replace(/  +/g, "");
+          htmlStr = htmlStr.replace(/\s{2,10}/g, "");
           //cleanse
           return htmlStr;
           break;
         }
       }
 
+    
       return "unknown";
     };
-    /*
 
-    let cleanAddressSegments = document.querySelector("p.pp_card_street");
-    let segLen = cleanAddressSegments.childElementCount;
-    let address1 = getInnerTextValue(
-      cleanAddressSegments.querySelector("span.pp_card_street:nth-of-type(1)")
-    );
+    var barNum = getRowDetailByLabel("Bar Number:", "text");
 
-    let address2 = getInnerTextValue(
-      cleanAddressSegments.querySelector("span.pp_card_street:nth-of-type(2)")
-    );
+    var addressHtml = getRowDetailByLabel("Mail Address:", "html");
+    const addressPhoneSplit = addressHtml.split("</p><p>");
+    let addressPieces = addressPhoneSplit[0].split("<br>");
+    for (let i = 0; i < addressPieces.length; i++) {
+      var el = addressPieces[i];
+      //clean up misc html tags
+      el = el.replace(/<\/?[^>]+(>|$)/gi, "");
 
-    let city = getInnerTextValue(
-      document.querySelector(
-        `p.pp_card_street > span:nth-of-type(${segLen - 2})`
-      )
-    );
-    let state = getInnerTextValue(
-      document.querySelector(
-        `p.pp_card_street > span:nth-of-type(${segLen - 1})`
-      )
-    );
-    state = state.replace(",", "").trim();
-    let zip = getInnerTextValue(
-      document.querySelector(`p.pp_card_street > span:nth-of-type(${segLen})`)
-    );
-    let website = "";
-    if (document.querySelector("a.listing-desc-button")) {
-      website = document
-        .querySelector("a.listing-desc-button")
-        .getAttribute("href");
-      if (website.includes("?")) {
-        website = website.split("?")[0];
-      }
+      addressPieces[i] = el;
     }
 
-    let phone = getInnerTextValue(
-      document.querySelector(".svg-icon-phone + span")
-    );
+    var companyName = addressPieces[0];
+    var address = addressPieces[1];
 
-    let profilePhotoUrl = "";
-    if (document.querySelector("img#profile_photo_block")) {
-      profilePhotoUrl = document
-        .querySelector("img#profile_photo_block")
-        .getAttribute("src");
-    }
+    var city_state_zip = addressPieces[2].split(", ");
+    var zip = city_state_zip[1].split(" ")[1];
 
-    let tmpEls = document.querySelectorAll(".card.more-info .block_content");
-    let moreBlocks = [];
-    console.log(`tmpEls len: ${tmpEls.length}`);
-
-    //convert html list to string list separated by a pipe (|)
-    const htmlListToStringList = (htmlStr) => {
-      let str = htmlStr.trim().replace(/>\s+</g, "><");
-
-      str = str.replaceAll("<ul><li>", "");
-      str = str.replaceAll("</li></ul>", "");
-      str = str.replaceAll("</li><li>", "|");
-      str = str.replaceAll(" |", "|");
-      str = str.replaceAll("| ", "|");
-      return str.trim();
-    };
-
-    //camelize string
-    function camelize(str) {
-      return str
-        .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
-          return index === 0 ? word.toLowerCase() : word.toUpperCase();
-        })
-        .replace(/\s+/g, "");
-    }
-
-    var keys = [];
-
-    for (var el of tmpEls) {
-      let k = camelize(el.querySelector("h4").innerText);
-      if (keys.includes(k)) {
-        continue;
-      }
-      keys.push(k);
-      let v = el.querySelector(".block_content_body").innerHTML;
-      //moreBlocks[k] = v;
-      let tmpObj = {};
-      //SKIP PHOTOS
-      if (!["photo", "address", "phone", "fax", "email"].includes(k)) {
-        //CLEAN LISTS TO STANDARD PIPE SEPARATED
-        if (
-          [
-            "practiceAreas",
-            "languages",
-            "classesAndSeminars",
-            "websites",
-          ].includes(k)
-        ) {
-          v = htmlListToStringList(v);
-        }
-
-        if (["offersFreeInitialConsultation"].includes(k)) {
-          v = v.replace("<p>Yes</p>", "Yes");
-        }
-
-        tmpObj[k] = v;
-        moreBlocks.push(tmpObj);
-      }
-    }
-
-    let fax = getInnerTextValue(document.querySelector(".pplus_firm_fax"));
-
-    //SOCIAL LINKS
-    let social_fb = "";
-    let social_twitter = "";
-    let social_linkedin = "";
-    let social_instagram = "";
-
-    const getMoreBlockValue = (k) => {
-      for (let i = 0; i < moreBlocks.length; i++) {
-        let obj = moreBlocks[i];
-
-        if (k in obj) {
-          return obj[k];
-        }
+    const getPhoneDetailByLabel = (str) => {
+      if (addressPhoneSplit[1].includes(str)) {
+        let str2 = addressPhoneSplit[1];
+        str2 = str2.replace("&nbsp;", "");
+        str2 = str2.replace(str, "");
+        let  tmpDiv = document.createElement("p");
+        tmpDiv.setAttribute("id", "tmpDiv");
+        tmpDiv.innerHTML = str2;
+        let tmpTxt = tmpDiv.innerText;
+        delete tmpDiv;
+        return tmpTxt;
       }
       return "";
     };
 
-    const getScrapePlacementDetails = (str) => {
-      let pieces = str.split("/");
-      return { name: pieces[5], state: pieces[6], city: pieces[7] };
-    };
-    const scrapePieces = getScrapePlacementDetails(window.location.href);
+    var officePhone = getPhoneDetailByLabel("Office:");
+    var cellPhone = getPhoneDetailByLabel("Cell:");
+    var faxPhone = getPhoneDetailByLabel("Fax:");
 
-    let description = "";
-    if (document.querySelector("div#pp_overview_text")) {
-      description = document.querySelector("div#pp_overview_text").innerHTML;
+    var practiceAreasHtml = String(getRowDetailByLabel("Practice Areas:", "html"));
+    var practiceAreas = practiceAreasHtml.split('</p><p>');
+    
+    for (let i = 0; i < practiceAreas.length; i++) {
+      var el = practiceAreas[i];
+      //clean up misc html tags
+      el = el.replace("<p>", "");
+      el = el.replace("</p>","");
+
+      practiceAreas[i] = el;
     }
-    */
-
-    var barNum = getRowDetailByLabel("Bar Number:");
+    
 
     return {
       fullName: document.querySelector("h1.full").innerText,
       barNum,
+      addressHtml,
+      companyName,
+      address,
+      city: city_state_zip[0],
+      state: "FL",
+      zip,
+      officePhone,
+      cellPhone,
+      faxPhone,
+      county: getRowDetailByLabel("County:", "text"),
+      circuit: getRowDetailByLabel("Circuit:", "text"),
+      admitted: getRowDetailByLabel("Admitted:", "text"),
+      tenYearDisciplineHistory: getRowDetailByLabel("10-Year Discipline History:", "text"),
+      lawSchool: getRowDetailByLabel("Law School:", "text"),
+      practiceAreas,
+      firmName: getRowDetailByLabel("Firm:", "text"),
+      firmSize: getRowDetailByLabel("Firm Size:", "text"),
+      firmPosition: getRowDetailByLabel("Firm Position:", "text"),
+      firmWebsite: getRowDetailByLabel("Firm Website:", "text")
     };
   });
 

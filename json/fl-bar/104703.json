@@ -1,0 +1,31 @@
+{
+    "fullName": "Ryan Joshua Andrews",
+    "barNum": "104703",
+    "addressHtml": "<p>Andrews Law Firm<br>822 N Monroe St<br>Tallahassee, FL 32303-6141</p><p>Office:&nbsp;<a href=\"tel:850-681-6416\">850-681-6416</a></p><p>Fax:&nbsp;850-681-6984</p>",
+    "companyName": "Andrews Law Firm",
+    "address": "822 N Monroe St",
+    "city": "Tallahassee",
+    "state": "FL",
+    "zip": "32303-6141",
+    "officePhone": "850-681-6416",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Leon",
+    "circuit": "02",
+    "admitted": "09/25/2013",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "unknown",
+    "practiceAreas": [
+        "Civil Litigation",
+        "Civil Trial",
+        "Consumer",
+        "Criminal",
+        "Internet",
+        "Medical Malpractice",
+        "Personal Injury"
+    ],
+    "firmName": "Andrews Law Firm",
+    "firmSize": "unknown",
+    "firmPosition": "unknown",
+    "firmWebsite": "unknown"
+}

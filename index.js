@@ -96,6 +96,77 @@ let scrapeListingslUrl = async (url) => {
   }
 };
 
+const getAllPageDetails = (document) => {
+  let elements = document.querySelectorAll("div.row");
+        els_array = Array.from(elements);
+        return els_array;
+  
+}
+
+let scrapeListingslUrlv2 = async (url) => {
+  try {
+    const browser = await puppeteer.launch({ headless: false });
+    const page = await browser.newPage();
+
+    var clickedIndex = 0;
+
+    
+    //spaces to dashes
+
+    await page.goto(url);
+
+      await page.waitForSelector(".profiles-compact");
+
+      
+      var profiles = await page.evaluate(() => {
+        let elements = document.querySelectorAll("li.profile-compact");
+        els_array = Array.from(elements);
+        return els_array;
+        //return headings_array.map(heading => heading.textContent);
+      });
+
+      var profilesCnt = profiles.length;
+
+      console.log(`profilesCnt: ${profilesCnt}`);
+      
+      //profilesCnt
+      while(clickedIndex < 3){
+        console.log(`\\\\attempt to get detail index: ${clickedIndex}`);
+        await page.waitForTimeout(2000);
+        //click for detail page
+        await page.click(`#output > div > ul > li:nth-child(${clickedIndex+1}) > div.profile-identity > div.profile-content > p.profile-name > a`);
+
+        //grab details
+        await page.waitForSelector('h1.full');
+        var details = await page.evaluate(() => {
+          let elements = getAllPageDetails(document);
+          return elements;
+          //return headings_array.map(heading => heading.textContent);
+        });
+
+        console.log('grabbed details');
+        console.dir(details);
+
+        //write details
+
+        //click back button to return back to previous
+        await page.goBack();
+
+        //increase index
+        clickedIndex++;
+      }
+      
+      //
+    
+
+    await browser.close();
+      return;
+  } catch (error) {
+    console.log("scrapeListingslUrl error");
+    console.log(error);
+  }
+};
+
 
 async function extractedEvaluateCallListing(page) {
   // just extracted same exact logic in separate function
@@ -658,13 +729,16 @@ async function extractedEvaluateCallListing2(page) {
 
 const mainProcessing = async() => {
   try {
+    scrapeListingslUrlv2(config.baseUrl);
+
+    /*
     //01. Setup Proxies
     approvedProxies = await scrapeProxiesListingslUrl(proxyListUrl);  
     console.log('final approvedProxies');
     console.dir(approvedProxies);
     
     //02. actual processing
-
+    
     if(config.isProcessMainIndex){
     scrapeListingslUrl(config.baseUrl).then((value) => {
 
@@ -695,12 +769,13 @@ const mainProcessing = async() => {
         grabNextDetail();
     });
     }
-
+    */
 
   } catch (error) {
     console.log('mainProcessing error');
     console.log(error);
   }
+  
   
 
 }

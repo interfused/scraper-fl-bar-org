@@ -1,0 +1,31 @@
+{
+    "fullName": "James Brent Allen",
+    "barNum": "90534",
+    "addressHtml": "<p>Hall Booth Smith, P.C.<br>200 W Forsyth St Ste 400<br>Jacksonville, FL 32202-4320</p><p>Office:&nbsp;<a href=\"tel:904-236-4929\">904-236-4929</a></p><p>Fax:&nbsp;904-236-4767</p>",
+    "companyName": "Hall Booth Smith, P.C.",
+    "address": "200 W Forsyth St Ste 400",
+    "city": "Jacksonville",
+    "state": "FL",
+    "zip": "32202-4320",
+    "officePhone": "904-236-4929",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Duval",
+    "circuit": "04",
+    "admitted": "07/25/2011",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "Florida Coastal School of Law, 2010",
+    "practiceAreas": [
+        "Civil Litigation",
+        "Civil Trial",
+        "Commercial Litigation",
+        "Health",
+        "Medical Malpractice",
+        "Professional Liability",
+        "Transportation"
+    ],
+    "firmName": "Hall Booth Smith, P.C.",
+    "firmSize": ">100",
+    "firmPosition": "Managing Partner",
+    "firmWebsite": "http://www.hallboothsmith.com"
+}

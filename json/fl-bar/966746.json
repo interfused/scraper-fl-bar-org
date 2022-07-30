@@ -1,0 +1,29 @@
+{
+    "fullName": "Michael Aaron Acker",
+    "barNum": "966746",
+    "addressHtml": "<p>Gordon &amp; Partners, P.A.<br>8201 Peters Rd Ste 4000<br>Plantation, FL 33324-3267</p><p>Office:&nbsp;<a href=\"tel:754-333-3333\">754-333-3333</a></p><p>Fax:&nbsp;954-421-7030</p>",
+    "companyName": "Gordon &amp; Partners, P.A.",
+    "address": "8201 Peters Rd Ste 4000",
+    "city": "Plantation",
+    "state": "FL",
+    "zip": "33324-3267",
+    "officePhone": "754-333-3333",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Broward",
+    "circuit": "17",
+    "admitted": "11/23/1992",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "Boston University School of Law, 1992",
+    "practiceAreas": [
+        "Civil Trial",
+        "Medical Malpractice",
+        "Personal Injury",
+        "Product Liability",
+        "Professional Liability"
+    ],
+    "firmName": "Gordon & Partners, P.A.",
+    "firmSize": "unknown",
+    "firmPosition": "unknown",
+    "firmWebsite": "http://fortheinjured.com"
+}

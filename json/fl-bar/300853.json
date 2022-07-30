@@ -1,0 +1,28 @@
+{
+    "fullName": "Jeff Steven Abers",
+    "barNum": "300853",
+    "addressHtml": "<p>Fazio, DiSalvo &amp; Abers, P.A.<br>633 S Andrews Ave Ste 203<br>Fort Lauderdale, FL 33301-2840</p><p>Office:&nbsp;<a href=\"tel:954-463-0585\">954-463-0585</a></p><p>Cell:&nbsp;<a href=\"tel:954-463-0585\">954-463-0585</a>&nbsp;-&nbsp;No Text Messages</p><p>Fax:&nbsp;954-767-9461</p>",
+    "companyName": "Fazio, DiSalvo &amp; Abers, P.A.",
+    "address": "633 S Andrews Ave Ste 203",
+    "city": "Fort Lauderdale",
+    "state": "FL",
+    "zip": "33301-2840",
+    "officePhone": "954-463-0585",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Broward",
+    "circuit": "17",
+    "admitted": "08/25/1980",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "University of Miami School of Law, 1980",
+    "practiceAreas": [
+        "Civil Trial",
+        "Medical Malpractice",
+        "Personal Injury",
+        "Trial"
+    ],
+    "firmName": "Fazio, DiSalvo & Abers, P.A.",
+    "firmSize": "2-5",
+    "firmPosition": "Partner/Shareholder",
+    "firmWebsite": "http://faziodisalvo.com"
+}

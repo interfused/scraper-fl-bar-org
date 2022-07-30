@@ -1,0 +1,27 @@
+{
+    "fullName": "Christopher Todd Alley",
+    "barNum": "321788",
+    "addressHtml": "<p>Morgan &amp; Morgan<br>201 N Franklin St Fl 7<br>Tampa, FL 33602-5157</p><p>Office:&nbsp;<a href=\"tel:813-223-5505\">813-223-5505</a></p>",
+    "companyName": "Morgan &amp; Morgan",
+    "address": "201 N Franklin St Fl 7",
+    "city": "Tampa",
+    "state": "FL",
+    "zip": "33602-5157",
+    "officePhone": "813-223-5505",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Hillsborough",
+    "circuit": "13",
+    "admitted": "06/18/1981",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "University of Alabama School of Law",
+    "practiceAreas": [
+        "Medical Malpractice",
+        "Personal Injury",
+        "Product Liability"
+    ],
+    "firmName": "Morgan & Morgan",
+    "firmSize": "2-5",
+    "firmPosition": "Partner/Shareholder",
+    "firmWebsite": "unknown"
+}

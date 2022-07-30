@@ -1,0 +1,30 @@
+{
+    "fullName": "Lemar Flores Alejo \"Lemar Alejo\"",
+    "barNum": "12931",
+    "addressHtml": "<p>Alejo Law, P.A.<br>635 Maitland Ave<br>Altamonte Springs, FL 32701-6833</p><p>Office:&nbsp;<a href=\"tel:321-800-8585\">321-800-8585</a></p><p>Fax:&nbsp;321-206-8699</p>",
+    "companyName": "Alejo Law, P.A.",
+    "address": "635 Maitland Ave",
+    "city": "Altamonte Springs",
+    "state": "FL",
+    "zip": "32701-6833",
+    "officePhone": "321-800-8585",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Seminole",
+    "circuit": "18",
+    "admitted": "07/20/2005",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "unknown",
+    "practiceAreas": [
+        "Civil Litigation",
+        "Litigation/Trial Advocacy/Advocacy",
+        "Medical Malpractice",
+        "Personal Injury",
+        "Product Liability",
+        "Trial"
+    ],
+    "firmName": "Alejo Law, P.A.",
+    "firmSize": "2-5",
+    "firmPosition": "Partner/Shareholder",
+    "firmWebsite": "http://alejolaw.com"
+}

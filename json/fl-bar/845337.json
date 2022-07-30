@@ -1,0 +1,29 @@
+{
+    "fullName": "Richard Elliott Alpert \"Richard\"",
+    "barNum": "845337",
+    "addressHtml": "<p>Cohn &amp; Dussi, LLC<br>130 New Boston St Ste 102<br>Woburn, MA 01801-6276</p><p>Office:&nbsp;<a href=\"tel:781-494-0200\">781-494-0200</a></p><p>Cell:&nbsp;<a href=\"tel:617-299-9339\">617-299-9339</a>&nbsp;-&nbsp;No Text Messages</p><p>Fax:&nbsp;617-830-0660</p>",
+    "companyName": "Cohn &amp; Dussi, LLC",
+    "address": "130 New Boston St Ste 102",
+    "city": "Woburn",
+    "state": "FL",
+    "zip": "01801-6276",
+    "officePhone": "781-494-0200",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Non-Florida",
+    "circuit": "00",
+    "admitted": "05/03/1990",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "Suffolk University Law School, 1988",
+    "practiceAreas": [
+        "Construction",
+        "Estate Planning",
+        "Medical Malpractice",
+        "Personal Injury",
+        "Trusts and Estates"
+    ],
+    "firmName": "Cohn & Dussi, LLC",
+    "firmSize": "21-50",
+    "firmPosition": "Partner/Shareholder",
+    "firmWebsite": "http://www.cohnanddussi.com"
+}

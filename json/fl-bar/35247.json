@@ -1,0 +1,33 @@
+{
+    "fullName": "James Roman Amarosa II \"Jim\"",
+    "barNum": "35247",
+    "addressHtml": "<p>Amarosa Law Firm, P.A.<br>3825 Henderson Blvd Ste 207<br>Tampa, FL 33629-5002</p><p>Office:&nbsp;<a href=\"tel:813-251-0700\">813-251-0700</a></p><p>Fax:&nbsp;813-251-0711</p>",
+    "companyName": "Amarosa Law Firm, P.A.",
+    "address": "3825 Henderson Blvd Ste 207",
+    "city": "Tampa",
+    "state": "FL",
+    "zip": "33629-5002",
+    "officePhone": "813-251-0700",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Hillsborough",
+    "circuit": "13",
+    "admitted": "04/19/2007",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "Western Michigan University Thomas M. Cooley Law School, 2002",
+    "practiceAreas": [
+        "Civil Litigation",
+        "Civil Trial",
+        "Criminal",
+        "Criminal Appellate",
+        "Litigation/Trial Advocacy/Advocacy",
+        "Medical Malpractice",
+        "Personal Injury",
+        "Product Liability",
+        "Trial"
+    ],
+    "firmName": "Amarosa Law Firm, P.A.",
+    "firmSize": "2-5",
+    "firmPosition": "Private Law Practice",
+    "firmWebsite": "http://www.AmarosaLaw.com"
+}

@@ -1,0 +1,31 @@
+{
+    "fullName": "Alejandro Alvarez \"Alex\"",
+    "barNum": "946346",
+    "addressHtml": "<p>The Alvarez Law Firm<br>3251 Ponce de Leon Blvd<br>Coral Gables, FL 33134-7251</p><p>Office:&nbsp;<a href=\"tel:305-444-7675\">305-444-7675</a></p><p>Fax:&nbsp;305-444-0075</p>",
+    "companyName": "The Alvarez Law Firm",
+    "address": "3251 Ponce de Leon Blvd",
+    "city": "Coral Gables",
+    "state": "FL",
+    "zip": "33134-7251",
+    "officePhone": "305-444-7675",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Miami-Dade",
+    "circuit": "11",
+    "admitted": "09/25/1992",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "University of Miami School of Law, 1992",
+    "practiceAreas": [
+        "Civil Litigation",
+        "Civil Trial",
+        "Litigation/Trial Advocacy/Advocacy",
+        "Medical Malpractice",
+        "Product Liability",
+        "Toxic Torts",
+        "Trial"
+    ],
+    "firmName": "The Alvarez Law Firm",
+    "firmSize": "6-10",
+    "firmPosition": "Managing Partner",
+    "firmWebsite": "http://www.integrityforjustice.com"
+}

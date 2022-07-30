@@ -1,0 +1,45 @@
+{
+    "eslint.nodePath": "/usr/local/lib/node_modules/eslint-config-airbnb-bundle/node_modules/eslint",
+    "javascript.format.enable": false,
+    "prettier.tabWidth": 4,
+    "css.lint.important": "warning",
+    "explorer.confirmDragAndDrop": false,
+    "less.lint.important": "warning",
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": 0,
+    "mssql.connections": [
+        {
+            "server": "{{put-server-name-here}}",
+            "database": "{{put-database-name-here}}",
+            "user": "{{put-username-here}}",
+            "password": ""
+        }
+    ],
+    "editor.formatOnSave": true,
+    "less.lint.float": "warning",
+    "[less]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[php]": {
+        "editor.formatOnSave": true
+    },
+    "prettier.singleQuote": true,
+    "phpfmt.indent_with_space": 4,
+    "phpfmt.enable_auto_align": true,
+    "phpfmt.passes": [
+        "AlignConstVisibilityEquals",
+        "AlignDoubleArrow",
+        "AlignDoubleSlashComments",
+        "AlignEquals",
+        "AlignGroupDoubleArrow",
+        "AlignPHPCode",
+        "DoubleToSingleQuote",
+        "NewLineBeforeReturn",
+        "PrettyPrintDocBlocks",
+        "ReindentSwitchBlocks",
+        "ReplaceIsNull",
+        "ShortArray",
+        "SpaceBetweenMethods"
+      ],
+}
+

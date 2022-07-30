@@ -1,0 +1,30 @@
+{
+    "fullName": "Michael Lee Abrams \"Mike\"",
+    "barNum": "171101",
+    "addressHtml": "<p>Michael L. Abrams, P.A.<br>9740 NW 35th St<br>Hollywood, FL 33024-8002</p><p>Office:&nbsp;<a href=\"tel:305-621-5600\">305-621-5600</a></p><p>Cell:&nbsp;<a href=\"tel:954-559-6453\">954-559-6453</a>&nbsp;-&nbsp;No Text Messages</p><p>Fax:&nbsp;954-433-3745</p>",
+    "companyName": "Michael L. Abrams, P.A.",
+    "address": "9740 NW 35th St",
+    "city": "Hollywood",
+    "state": "FL",
+    "zip": "33024-8002",
+    "officePhone": "305-621-5600",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Broward",
+    "circuit": "17",
+    "admitted": "01/16/1974",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "Florida State University College of Law, 1973",
+    "practiceAreas": [
+        "Estate Planning",
+        "Medical Malpractice",
+        "Personal Injury",
+        "Probate and Trust Litigation",
+        "Real Estate",
+        "Wills, Trusts and Estates"
+    ],
+    "firmName": "Michael L. Abrams, P.A.",
+    "firmSize": "2-5",
+    "firmPosition": "Of Counsel",
+    "firmWebsite": "unknown"
+}

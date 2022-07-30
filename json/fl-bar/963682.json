@@ -1,0 +1,29 @@
+{
+    "fullName": "Alexander Alvarez",
+    "barNum": "963682",
+    "addressHtml": "<p>Law Office of Alexander Alvarez<br>8900 SW 107th Ave Ste 301<br>Miami, FL 33176-1451</p><p>Office:&nbsp;<a href=\"tel:305-598-2000\">305-598-2000</a></p><p>Cell:&nbsp;<a href=\"tel:305-598-2000\">305-598-2000</a>&nbsp;-&nbsp;No Text Messages</p><p>Fax:&nbsp;786-228-4890</p>",
+    "companyName": "Law Office of Alexander Alvarez",
+    "address": "8900 SW 107th Ave Ste 301",
+    "city": "Miami",
+    "state": "FL",
+    "zip": "33176-1451",
+    "officePhone": "305-598-2000",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Miami-Dade",
+    "circuit": "11",
+    "admitted": "10/22/1992",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "Florida State University College of Law, 1992",
+    "practiceAreas": [
+        "Civil Trial",
+        "Construction",
+        "Contracts",
+        "Medical Malpractice",
+        "Personal Injury"
+    ],
+    "firmName": "Law Office of Alexander Alvarez",
+    "firmSize": "2-5",
+    "firmPosition": "Private Law Practice",
+    "firmWebsite": "http://www.aalvarezlawfirm.com"
+}

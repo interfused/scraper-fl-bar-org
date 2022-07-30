@@ -2,7 +2,11 @@
   "dependencies": {
     "eslint": "^8.2.0",
     "psl": "^1.8.0",
-    "puppeteer": "^11.0.0"
+    "puppeteer": "^11.0.0",
+    "puppeteer-extra": "^3.3.4",
+    "puppeteer-extra-plugin-adblocker": "^2.13.4",
+    "puppeteer-extra-plugin-proxy2": "^1.0.0",
+    "puppeteer-extra-plugin-stealth": "^2.11.0"
   },
   "name": "findlaw",
   "version": "1.0.0",

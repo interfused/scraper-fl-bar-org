@@ -1,0 +1,32 @@
+{
+    "fullName": "Fred Catfish Abbott",
+    "barNum": "265292",
+    "addressHtml": "<p>Abbott Law Group, P A<br>2929 Plummer Cove Rd<br>Jacksonville, FL 32223-6610</p><p>Office:&nbsp;<a href=\"tel:904-292-1111\">904-292-1111</a></p><p>Cell:&nbsp;<a href=\"tel:904-292-1111\">904-292-1111</a>&nbsp;-&nbsp;No Text Messages</p><p>Fax:&nbsp;904-292-1220</p>",
+    "companyName": "Abbott Law Group, P A",
+    "address": "2929 Plummer Cove Rd",
+    "city": "Jacksonville",
+    "state": "FL",
+    "zip": "32223-6610",
+    "officePhone": "904-292-1111",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Duval",
+    "circuit": "04",
+    "admitted": "12/06/1978",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "University of Florida, Fredric G. Levin College of Law, 1978",
+    "practiceAreas": [
+        "Civil Litigation",
+        "Civil Trial",
+        "Legal Malpractice",
+        "Medical Malpractice",
+        "Personal Injury",
+        "Product Liability",
+        "Professional Liability",
+        "Trial"
+    ],
+    "firmName": "unknown",
+    "firmSize": "2-5",
+    "firmPosition": "Private Law Practice",
+    "firmWebsite": "unknown"
+}

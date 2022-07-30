@@ -1,0 +1,28 @@
+{
+    "fullName": "Carter J. Adams",
+    "barNum": "110564",
+    "addressHtml": "<p>The Law Offices of Carter J. Adams, P.A.<br>290 Cypress Gardens Blvd<br>Winter Haven, FL 33880-4346</p><p>Office:&nbsp;<a href=\"tel:863-268-2124\">863-268-2124</a></p><p>Cell:&nbsp;<a href=\"tel:863-268-2124\">863-268-2124</a></p>",
+    "companyName": "The Law Offices of Carter J. Adams, P.A.",
+    "address": "290 Cypress Gardens Blvd",
+    "city": "Winter Haven",
+    "state": "FL",
+    "zip": "33880-4346",
+    "officePhone": "863-268-2124",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Polk",
+    "circuit": "10",
+    "admitted": "06/26/2014",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "Barry University Dwayne O. Andreas School of Law, 2013",
+    "practiceAreas": [
+        "Civil Litigation",
+        "Civil Trial",
+        "Medical Malpractice",
+        "Personal Injury"
+    ],
+    "firmName": "The Law Offices of Carter J. Adams, P.A.",
+    "firmSize": "1",
+    "firmPosition": "Managing Partner",
+    "firmWebsite": "http://cjadamslaw.com"
+}

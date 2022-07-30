@@ -1,0 +1,29 @@
+{
+    "fullName": "Scott Bennett Albee",
+    "barNum": "980870",
+    "addressHtml": "<p>Fulmer LeRoy &amp; Albee, PLLC<br>5544 Central Ave<br>St Petersburg, FL 33707-1717</p><p>Office:&nbsp;<a href=\"tel:727-217-2500\">727-217-2500</a></p><p>Fax:&nbsp;727-217-2501</p>",
+    "companyName": "Fulmer LeRoy &amp; Albee, PLLC",
+    "address": "5544 Central Ave",
+    "city": "St Petersburg",
+    "state": "FL",
+    "zip": "33707-1717",
+    "officePhone": "727-217-2500",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Pinellas",
+    "circuit": "06",
+    "admitted": "09/22/1993",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "Mercer University - Walter F. George School of Law, 1993",
+    "practiceAreas": [
+        "Civil Trial",
+        "Mediation",
+        "Medical Malpractice",
+        "Personal Injury",
+        "Transportation"
+    ],
+    "firmName": "Fulmer LeRoy & Albee, PLLC",
+    "firmSize": "11-20",
+    "firmPosition": "Partner/Shareholder",
+    "firmWebsite": "http://FulmerLeRoy.com"
+}

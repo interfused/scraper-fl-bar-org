@@ -1,0 +1,33 @@
+{
+    "fullName": "Adam Carter Abrams",
+    "barNum": "254400",
+    "addressHtml": "<p>Abrams &amp; Associates PLC<br>20425 Highland Lakes Blvd<br>Miami, FL 33179-2237</p><p>Office:&nbsp;<a href=\"tel:305-528-5575\">305-528-5575</a></p><p>Cell:&nbsp;<a href=\"tel:305-528-5575\">305-528-5575</a>&nbsp;-&nbsp;No Text Messages</p>",
+    "companyName": "Abrams &amp; Associates PLC",
+    "address": "20425 Highland Lakes Blvd",
+    "city": "Miami",
+    "state": "FL",
+    "zip": "33179-2237",
+    "officePhone": "305-528-5575",
+    "cellPhone": "",
+    "faxPhone": "",
+    "county": "Miami-Dade",
+    "circuit": "11",
+    "admitted": "05/19/2000",
+    "tenYearDisciplineHistory": "None",
+    "lawSchool": "University of Miami School of Law, 1999",
+    "practiceAreas": [
+        "Bankruptcy",
+        "Business and Taxation",
+        "Civil Litigation",
+        "Commercial Litigation",
+        "Estate Planning",
+        "Medical Malpractice",
+        "Personal Injury",
+        "Real Estate/Land Development",
+        "Tax"
+    ],
+    "firmName": "Abrams & Associates PLC",
+    "firmSize": "1",
+    "firmPosition": "Private Law Practice",
+    "firmWebsite": "unknown"
+}
